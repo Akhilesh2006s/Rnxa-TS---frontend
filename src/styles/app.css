@@ -121,6 +121,22 @@ a {
   display: flex;
   flex-direction: column;
   gap: 2px;
+  /* Long menus (admins) scroll inside the sidebar; brand and user row stay put. */
+  flex: 1 1 auto;
+  min-height: 0;
+  overflow-y: auto;
+  overscroll-behavior: contain;
+  margin: 0 calc(var(--space-2) * -1);
+  padding: 0 var(--space-2);
+  scrollbar-width: thin;
+  scrollbar-color: var(--color-border-strong) transparent;
+}
+.nav > * {
+  flex-shrink: 0;
+}
+.sidebar-brand,
+.sidebar-user {
+  flex: none;
 }
 .nav-label {
   padding: var(--space-4) var(--space-3) var(--space-1);
@@ -172,7 +188,6 @@ a {
   line-height: 20px;
 }
 .sidebar-user {
-  margin-top: auto;
   display: flex;
   align-items: center;
   gap: var(--space-3);

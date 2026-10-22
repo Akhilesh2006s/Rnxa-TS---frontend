@@ -7,6 +7,7 @@ import { AssistantPanel, AssistantLauncher } from "../assistant/AssistantPanel";
 import { AssistantProvider } from "../assistant/AssistantContext";
 import { VoiceDock } from "../assistant/VoiceDock";
 import { Icon, type IconName } from "./Icon";
+import { ChangePasswordDialog } from "./ChangePassword";
 import { NotificationsBell } from "./Notifications";
 import { UrgentAlerts } from "./UrgentAlerts";
 
@@ -84,6 +85,7 @@ function Shell() {
   const user = useUser();
   const { logout } = useAuth();
   const [navOpen, setNavOpen] = useState(false);
+  const [changingPassword, setChangingPassword] = useState(false);
   const [pending, setPending] = useState(0);
   const location = useLocation();
   const reviewer = user.role !== "EMPLOYEE";
@@ -195,6 +197,11 @@ function Shell() {
             <strong>{user.name}</strong>
             <span>{user.role.charAt(0) + user.role.slice(1).toLowerCase()}</span>
           </span>
+          {!user.impersonator && (
+            <button type="button" className="btn btn-ghost btn-icon" aria-label="Change password" title="Change password" onClick={() => setChangingPassword(true)}>
+              <Icon name="key" />
+            </button>
+          )}
           <button type="button" className="btn btn-ghost btn-icon" aria-label="Sign out" title="Sign out" onClick={logout}>
             <Icon name="logout" />
           </button>
@@ -205,6 +212,7 @@ function Shell() {
         <UrgentAlerts />
         <Outlet />
       </main>
+      <ChangePasswordDialog open={changingPassword} onClose={() => setChangingPassword(false)} />
       <AssistantLauncher />
       <AssistantPanel />
       <VoiceDock />
