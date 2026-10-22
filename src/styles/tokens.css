@@ -1,0 +1,116 @@
+/*
+ * RNXA Timesheet design tokens. The single source for colour, type, spacing
+ * and component metrics. Page components must not hardcode brand colours.
+ *
+ * Brand values were read from the CSS custom properties published on
+ * https://www.rnxadigital.com/ (the `--enterprise-*` set and the wordmark
+ * styles) on 2026-10-22. Status: SAMPLED FROM LIVE SITE, pending sign-off
+ * against RNXA source brand assets. Official assets take precedence.
+ *
+ *   site token                    -> app token
+ *   --enterprise-heading  #072b55 -> color.brand.primary   (wordmark "RN", headings)
+ *   --enterprise-heading-hover    -> color.brand.primaryHover
+ *   --enterprise-accent   #ff7c66 -> color.brand.secondary (wordmark "XA", CTAs)
+ *   --enterprise-accent-hover     -> color.brand.secondaryHover
+ *   --enterprise-surface  #f6f8fb -> color.surface
+ *   --enterprise-surface-2 #eef1f6 -> color.surfaceSunken
+ *   --enterprise-border   #e2e8f0 -> color.border
+ *   --enterprise-text     #111111 -> color.textPrimary
+ *   --enterprise-muted    #5c6670 -> color.textSecondary
+ *   font-family Inter (wordmark: 700, letter-spacing -0.02em)
+ *   CTA buttons: fully rounded (pill), 600 weight
+ *
+ * Accessibility note: white text on the coral accent is about 2.6:1, below
+ * WCAG AA. Coral is therefore used for brand marks and indicators, and navy
+ * (about 13:1 with white) carries primary actions and selected navigation.
+ */
+:root {
+  /* color.brand.* */
+  --color-brand-primary: #072b55;
+  --color-brand-primary-hover: #051f3d;
+  --color-brand-primary-soft: #e8eef6;
+  --color-brand-secondary: #ff7c66;
+  --color-brand-secondary-hover: #e86b55;
+  --color-brand-secondary-soft: #fff0ed;
+
+  /* color.surface / text / border */
+  --color-surface: #f6f8fb;
+  --color-surface-raised: #ffffff;
+  --color-surface-sunken: #eef1f6;
+  --color-border: #e2e8f0;
+  --color-border-strong: #cbd5e1;
+  --color-text-primary: #111111;
+  --color-text-secondary: #5c6670;
+  --color-text-inverse: #ffffff;
+  --color-text-inverse-muted: #c9d6e6;
+  --color-scrim: rgba(5, 17, 39, 0.4);
+  --color-heading: var(--color-brand-primary);
+
+  /* color.status.* : text, background and border per state. Always shown with an icon or label. */
+  --color-status-success: #146c43;
+  --color-status-success-bg: #e7f5ee;
+  --color-status-success-border: #b5dfc9;
+  --color-status-warning: #8a5300;
+  --color-status-warning-bg: #fff5e1;
+  --color-status-warning-border: #f5d79a;
+  --color-status-error: #b4121b;
+  --color-status-error-bg: #fdecec;
+  --color-status-error-border: #f5c2c4;
+  --color-status-info: #1d5a9e;
+  --color-status-info-bg: #eaf2fc;
+  --color-status-info-border: #bdd4f0;
+  --color-status-neutral: #4a545e;
+  --color-status-neutral-bg: #eef1f6;
+  --color-status-neutral-border: #d5dbe3;
+
+  /* Single-series data marks (magnitude). */
+  --color-data: var(--color-brand-primary);
+  --color-data-muted: #9fb3cc;
+  --color-data-track: var(--color-surface-sunken);
+
+  /* font.* */
+  --font-family: "Inter Variable", Inter, system-ui, -apple-system, "Segoe UI", sans-serif;
+  --font-size-xs: 0.75rem;
+  --font-size-sm: 0.8125rem;
+  --font-size-md: 0.875rem;
+  --font-size-base: 1rem;
+  --font-size-lg: 1.125rem;
+  --font-size-xl: 1.375rem;
+  --font-size-2xl: 1.75rem;
+  --font-weight-regular: 400;
+  --font-weight-medium: 500;
+  --font-weight-semibold: 600;
+  --font-weight-bold: 700;
+  --line-height-tight: 1.25;
+  --line-height-base: 1.5;
+
+  /* radius.* */
+  --radius-sm: 6px;
+  --radius-md: 8px;
+  --radius-lg: 12px;
+  --radius-pill: 9999px;
+
+  /* spacing.* (4px grid) */
+  --space-1: 4px;
+  --space-2: 8px;
+  --space-3: 12px;
+  --space-4: 16px;
+  --space-5: 20px;
+  --space-6: 24px;
+  --space-8: 32px;
+  --space-10: 40px;
+
+  /* shadow.* (from --shadow-card on the site, softened) */
+  --shadow-sm: 0 1px 2px rgba(0, 27, 57, 0.06);
+  --shadow-md: 0 4px 24px -8px rgba(0, 27, 57, 0.12);
+  --shadow-lg: 0 20px 50px -20px rgba(0, 27, 57, 0.25);
+
+  /* component metrics */
+  --control-height: 40px;
+  --control-height-sm: 32px;
+  --focus-ring: 0 0 0 2px var(--color-surface-raised), 0 0 0 4px var(--color-brand-primary);
+  --table-row-height: 44px;
+  --sidebar-width: 248px;
+  --topbar-height: 60px;
+  --content-max-width: 1280px;
+}
