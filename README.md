@@ -13,4 +13,4 @@ The dev server proxies `/api` to `http://localhost:4000` (start the backend firs
 
 ## Deploy (Vercel)
 
-`vercel.json` builds with Vite and rewrites `/api/*` to the backend on Render, so the browser talks to one origin and session cookies stay first-party. If the backend URL changes, update the rewrite destination.
+`vercel.json` builds with Vite and rewrites `/api/*` to the backend on the DigitalOcean droplet, so the browser talks to one origin and session cookies stay first-party. If the backend URL changes, update the rewrite destination.
