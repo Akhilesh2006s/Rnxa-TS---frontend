@@ -4,7 +4,7 @@
   "buildCommand": "npm run build",
   "outputDirectory": "dist",
   "redirects": [
-    { "source": "/", "destination": "https://192-34-58-236.sslip.io/", "permanent": false },
-    { "source": "/:path*", "destination": "https://192-34-58-236.sslip.io/:path*", "permanent": false }
+    { "source": "/", "destination": "https://timesheet.rnxadigital.com/", "permanent": false },
+    { "source": "/:path*", "destination": "https://timesheet.rnxadigital.com/:path*", "permanent": false }
   ]
 }
